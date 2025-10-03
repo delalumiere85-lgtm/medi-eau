@@ -1,0 +1,77 @@
+/* Style global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #000; /* Fond noir */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Zones de navigation gauche et droite */
+.nav-zone {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.left-zone {
+    left: 0;
+}
+
+.right-zone {
+    right: 0;
+}
+
+.nav-zone:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Conteneur pour les images */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	overflow: hidden;
+    align-items: center;
+    gap: 2px; /* Espace entre les images */
+    z-index: 1;
+}
+
+/* Style des images */
+.menu-image-link img {
+    width: 250px;
+    height: auto;
+    
+    
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.menu-image-link img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-image-link img {
+        width: 200px; /* Réduit la largeur des images sur petits écrans */
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-image-link img {
+        width: 180px; /* Réduit encore plus la taille sur très petits écrans */
+    }
+}

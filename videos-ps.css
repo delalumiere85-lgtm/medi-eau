@@ -1,0 +1,166 @@
+/* Style global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Pas de scroll global */
+}
+
+/* Conteneur principal centré */
+.gallery-container {
+    width: 60vw;
+    height: 70vh;
+    overflow-y: scroll; /* Scroller vertical pour voir les vidéos */
+    position: relative;
+    z-index: 1;
+}
+
+/* Style pour la galerie de vidéos */
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    grid-gap: 3px;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+   
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.video-container:hover video {
+    transform: scale(1.1);
+}
+.scroll-indicator {
+    position: fixed;
+    bottom:120px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4rem;
+    animation: bounce 1.5s infinite;
+    color: #ffffff;
+ 
+    transition: opacity 0.1s ease;
+ z-index: 2;
+    
+}
+
+/* Conteneur vidéo */
+.video-container {
+    position: relative;
+    overflow: hidden;
+    
+    margin-bottom: 1px;
+}
+
+/* Style des vidéos */
+.video-element {
+    width: 100%;
+    height: auto;
+    display: block;
+    
+}
+
+/* Bouton de lecture */
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    line-height: 50px;
+    cursor: pointer;
+    z-index: 2;
+    
+}
+
+/* Changer la couleur au survol */
+.play-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+}
+.video-container:hover video {
+    transform: scale(1.1);
+}
+/* Bouton pause */
+.pause-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7) transparent;
+    color: transparent;
+    opacity: 0%;
+    border: none;
+    border-radius: 50%;
+    width: 1500px;
+    height: 1500px;
+    font-size: 1.5rem;
+    display: none; /* Caché par défaut */
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+   
+}
+
+/* Effet au survol du bouton pause */
+.pause-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+}
+/* Zones de navigation gauche et droite */
+.nav-zone {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.left-zone {
+    left: 0;
+}
+
+.right-zone {
+    right: 0;
+}
+
+.nav-zone:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .video-gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    }
+}
+
+@media (max-width: 480px) {
+    .video-gallery {
+        grid-template-columns: 1fr; /* 1 colonne */
+    }
+}

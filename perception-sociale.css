@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style du body avec fond noir */
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Grille de la galerie d'images centrée */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3px; /* Espacement entre les images */
+    max-width: 60vw; /* Largeur maximale pour centrer la galerie */
+    max-height: 70vh; /* Hauteur maximale pour la galerie */
+    position: relative;
+    z-index: 1; /* Mettre la galerie devant les zones cliquables */
+}
+
+/* Conteneur de chaque image */
+.image-container {
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111; /* Léger fond pour l'image */
+}
+
+/* Images uniformes avec effet de zoom */
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease; /* Transition pour le zoom */
+}
+
+/* Zoom de l'image au survol */
+.image-container:hover img {
+    transform: scale(1.1); /* Zoom de 10% */
+}
+
+/* Zones cliquables invisibles */
+.nav-zone {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 0; /* Derrière la galerie */
+}
+
+/* Zone cliquable gauche */
+.left-zone {
+    left: 0;
+}
+
+/* Zone cliquable droite */
+.right-zone {
+    right: 0;
+}
+/* Effet de survol (hover) pour les zones de navigation */
+.nav-zone:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Ajoute un léger voile blanc */
+}
+
+/* Responsivité pour petits écrans */
+@media (max-width: 768px) {
+    .image-gallery {
+        grid-template-columns: 1fr 1fr; /* Grille 2x2 sur tablette */
+        max-width: 50%;
+        max-height: 30%;
+        
+    }
+}
+
+@media (max-width: 480px) {
+    .image-gallery {
+        grid-template-columns: 1fr ; /* Grille 1x4 sur mobile */
+        max-width: 50%;
+        max-height: 30%;
+        margin-bottom: 50%;
+    }
+}
